@@ -1,3 +1,5 @@
+// import 'dart:js';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -5,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:mynotes/views/login_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'package:mynotes/views/verify_email_view.dart';
-import 'dart:developer' as devtools show log;
+
 import 'firebase_options.dart';
 
 void main() {
@@ -20,6 +22,7 @@ void main() {
         routes: {
           '/login': (context) => const LoginView(),
           '/register': (context) => const RegisterView(),
+          '/notes': (context) => const NotesView(),
         }),
   );
 }
@@ -77,6 +80,7 @@ class _NotesViewState extends State<NotesView> {
                 final shouldLogout = await showLogOutDialog(context);
                 if (shouldLogout) {
                   await FirebaseAuth.instance.signOut();
+                  // ignore: use_build_context_synchronously
                   Navigator.of(context).pushNamedAndRemoveUntil(
                     '/login',
                     (_) => false,

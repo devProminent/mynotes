@@ -11,8 +11,6 @@ class EmailAlreadyInUseAuthException implements Exception {}
 
 class InvalidEmailAuthException implements Exception {}
 
-class CouldNotDeleteUser implements Exception {}
-
 //generic exceptions
 
 class GenericAuthException implements Exception {}

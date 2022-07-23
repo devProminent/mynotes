@@ -10,7 +10,7 @@ class LoadingScreen {
 
   LoadingScreenController? controller;
 
-  void show(required BuildContext context, {
+  void show( BuildContext context, {
     required BuildContext context,
     required String text,
   }) {
